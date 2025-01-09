@@ -17,8 +17,7 @@ const Navbar = () => {
                     </ul>
                     <div className="d-flex" role="search">
                         <a href="#" className="bg-dark text-light">
-                            <i className="fa-solid fa-cart-shopping text-light"></i> <span className="badge text-bg-secondary"
-                                id="cart-total"></span>
+                            <i className="fa-solid fa-cart-shopping text-light"></i> <span className="badge text-bg-secondary">0</span>
                         </a>
                     </div>
                 </div>
