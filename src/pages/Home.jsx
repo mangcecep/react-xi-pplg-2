@@ -4,14 +4,12 @@ import banner1 from "../assets/banner_1.jpeg"
 import banner2 from "../assets/banner_2.jpeg"
 import banner3 from "../assets/banner_3.jpeg"
 import banner4 from "../assets/banner_4.jpeg"
-import product1 from "../assets/product-1.jpeg"
-import product2 from "../assets/product-2.jpeg"
-import product3 from "../assets/product-3.jpeg"
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 import CardProduct from "../components/CardProduct"
+import { useSelector } from "react-redux"
 
 const Home = () => {
     const [bannerData] = useState([
@@ -32,36 +30,7 @@ const Home = () => {
             image: banner4
         }
     ])
-
-    const [products] = useState([
-        {
-            id: 1,
-            product_name: "Adidas Samba",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta dolorum libero fugit eveniet officiis repudiandae at perferendis accusantium velit vero.",
-            stock: 20,
-            price: 2000000,
-            product_type: "Shoes",
-            product_image: product1
-        },
-        {
-            id: 2,
-            product_name: "Nike Air Jordan",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta dolorum libero fugit eveniet officiis repudiandae at perferendis accusantium velit vero.",
-            stock: 20,
-            price: 1000000,
-            product_type: "Shoes",
-            product_image: product2
-        },
-        {
-            id: 3,
-            product_name: "Swallow Shoes",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta dolorum libero fugit eveniet officiis repudiandae at perferendis accusantium velit vero.",
-            stock: 20,
-            price: 10000000,
-            product_type: "Shoes",
-            product_image: product3
-        },
-    ])
+    const { product } = useSelector((root) => root)
 
     const settings = {
         dots: true,
@@ -88,7 +57,9 @@ const Home = () => {
             <div className="container p-4">
                 <div className="row">
                     {
-                        products?.map((product, index) => <CardProduct key={index} {...product} />)
+                        product?.map((product, index) => <CardProduct
+                            key={index} {...product}
+                        />)
                     }
                 </div>
             </div>
