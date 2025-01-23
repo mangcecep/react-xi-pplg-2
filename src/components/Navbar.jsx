@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const { cart } = useSelector(root => root)
@@ -9,7 +10,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-dark ">
             <div className="container-fluid ">
-                <a className="navbar-brand text-light" href="/">MARKETPLACE PPLG II</a>
+                <Link className="navbar-brand text-light" to="/">MARKETPLACE PPLG II</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -18,13 +19,13 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active text-light" aria-current="page" href="#">Home</a>
+                            <Link className="nav-link active text-light" aria-current="page" to="/">Home</Link>
                         </li>
                     </ul>
                     <div className="d-flex" role="search">
-                        <a href="#" className="bg-dark text-light">
+                        <Link to="/cart" className="bg-dark text-light">
                             <i className="fa-solid fa-cart-shopping text-light"></i> <span className="badge text-bg-secondary">{cartInit}</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
