@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { rupiahFormat } from "../utils"
-import { addToCartProduct } from "../redux/productSlice"
-import { addToCart } from "../redux/cartSlice"
+// import { addToCartProduct } from "../redux/productSlice"
+// import { addToCart } from "../redux/cartSlice"
 
 const CardProduct = (product) => {
     const {
@@ -25,8 +25,8 @@ const CardProduct = (product) => {
                     <p className="card-text">Stock: {stock}</p>
                     <button type="button" className="btn btn-success"
                         onClick={() => {
-                            dispatch(addToCartProduct(product))
-                            dispatch(addToCart(product))
+                            // dispatch(addToCartProduct(product))
+                            // dispatch(addToCart(product))
                         }}
                     >Add To Chart</button>
                 </div>

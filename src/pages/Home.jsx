@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import banner1 from "../assets/banner_1.jpeg"
 import banner2 from "../assets/banner_2.jpeg"
@@ -9,7 +9,8 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 import CardProduct from "../components/CardProduct"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { getProduct } from "../redux/productSlice"
 
 const Home = () => {
     const [bannerData] = useState([
@@ -30,8 +31,8 @@ const Home = () => {
             image: banner4
         }
     ])
-    const { product } = useSelector((root) => root)
-
+    const product = useSelector((root) => root?.product)
+    const dispatch = useDispatch()
     const settings = {
         dots: true,
         infinite: true,
@@ -41,6 +42,8 @@ const Home = () => {
         autoplay: true,
         autoplaySpeed: 2000,
     };
+
+    useEffect(() => dispatch(getProduct()), [dispatch])
 
     return (
         <>
@@ -57,7 +60,7 @@ const Home = () => {
             <div className="container p-4">
                 <div className="row">
                     {
-                        product?.map((product, index) => <CardProduct
+                        product?.data?.map((product, index) => <CardProduct
                             key={index} {...product}
                         />)
                     }

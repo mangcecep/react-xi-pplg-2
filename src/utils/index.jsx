@@ -7,7 +7,7 @@ const rupiahFormat = (value) => (new Intl.NumberFormat("id-ID", {
 }).format(value))
 
 const api = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com',
+    baseURL: 'http://localhost:8000/api/',
     headers: {
         "Accept": "Application/json"
     }
